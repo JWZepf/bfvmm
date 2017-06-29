@@ -210,7 +210,7 @@ control_tpr_shadow_and_virtual_apic()
 
         auto virt_addr_span = gsl::span<uint8_t>(virt_addr, 0x81);
         auto vtpr = virt_addr_span[0x80];
-        auto vtpr_74 = (vtpr & 0xF0U) >> 4;
+        auto vtpr_74 = (vtpr & 0xF0) >> 4;
         auto tpr_threshold_30 = static_cast<uint8_t>(tpr_threshold & 0x0000000FULL);
 
         if (tpr_threshold_30 > vtpr_74) {
